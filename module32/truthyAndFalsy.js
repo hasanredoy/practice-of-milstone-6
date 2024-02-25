@@ -17,8 +17,14 @@
 */
 
 // check falsy 
-const n = '';
+const falsy = '';
 
-if(!n){
+if(!falsy){
   console.log( "value is falsy ")
+}
+// check truthy 
+const truthy = '0';
+
+if(!!truthy){
+  console.log( "value is truthy ")
 }
