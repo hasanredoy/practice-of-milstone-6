@@ -17,9 +17,9 @@ const num = numbers.map(a)
 
 // using map in direct function 
 
-const updated = numbers.map(num => num * 2)
+const updated = numbers.map((num,index,fullArray) => num * 2)//function er second perameter index return kore and third parameter full array ke return kore 
 
-// console.log(updated)
+console.log(updated)
 
 // map in string type array 
 

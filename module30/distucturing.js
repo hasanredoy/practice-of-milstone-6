@@ -49,3 +49,17 @@ console.log(frist, second)
 let a=4;b=6;
 
 console.log([a,b]=[b,a])
+
+
+// destructuring in function 
+const my= {
+  name  : ' hossain Hasan redoy',
+  age : 20,
+  isStudying : false
+
+}
+
+const destructuring = ({name, age })=> console.log(name, age);
+
+console.log('from bottom ',)
+destructuring(my)
