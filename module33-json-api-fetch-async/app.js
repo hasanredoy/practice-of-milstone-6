@@ -20,7 +20,7 @@ function loadUser(){
 
 function getData(data){
   const ul = document.getElementById('ul-id');
-  for(const users of data){
+  for(const users of data){3
     const li = document.createElement('li')
     li.innerText=users.name;
     ul.appendChild(li)
