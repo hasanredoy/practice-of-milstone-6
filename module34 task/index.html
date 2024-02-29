@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Universe</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+  <header>
+    <h1 class="text-5xl font-black text-center my-3">AI Universe</h1>
+    <div class="flex justify-center">
+      <button id="sort-btn" class="btn">Sort By Date</button>
+    </div>
+  </header>
+  <main>
+
+    <section id="append-section" class="grid grid-cols-1 lg:grid-cols-3">
+      <!-- <div class="card w-96 bg-base-100 shadow-xl">
+        <figure class="px-10 pt-10">
+          <img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" class="rounded-xl" />
+        </figure>
+        <div class="card-body items-center text-center">
+          <h2 class="card-title">Shoes!</h2>
+          <p>If a dog chews shoes whose shoes does he choose?</p>
+          <div class="card-actions">
+            <button class="btn btn-primary">Buy Now</button>
+          </div>
+        </div>
+      </div> -->
+     
+    </section>
+      <div id="showALL" class="flex justify-center hidden my-2">
+        <button onclick="showAll()" class="btn bg-slate-600">Show All</button>
+      </div>
+      <!-- modal div  -->
+      <div >
+        <!-- You can open the modal using ID.showModal() method -->
+
+<dialog id="my_modal_3" class="modal">
+  <div id="modal" class="modal-box">
+    <form method="dialog">
+      <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+    </form>
+    
+  </div>
+</dialog>
+      </div>
+
+  </main>
+  <script src="/module34 task/index.js"></script>
+</body>
+
+</html>
