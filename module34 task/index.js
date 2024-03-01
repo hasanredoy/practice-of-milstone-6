@@ -1,16 +1,16 @@
 let sort = false
-
+const section = document.getElementById('append-section')
 const getData = async (isShowing, sort) => {
   const res = await fetch(`https://openapi.programming-hero.com/api/ai/tools`)
   const data = await res.json();
   const AI = data.data
- 
+
   mainFunctionality(AI.tools, isShowing)
 }
 // getData( 0,sort)
 
 
-const mainFunctionality = (get, isShowing, sort) => {
+const mainFunctionality = (get, isShowing) => {
   console.log()
   if (!isShowing) {
     get = get.slice(0, 6)
@@ -19,6 +19,25 @@ const mainFunctionality = (get, isShowing, sort) => {
   const get6 = get[5].image = 'https://img.olhardigital.com.br/wp-content/uploads/2023/01/chatgpt_assistente.jpg'
 
 
+  section.textContent=" "
+  // adding sort function 
+  let willSort = get;
+  console.log(willSort)
+  document.getElementById('sort-btn').addEventListener('click', function () {
+    const sort = willSort.sort((a, b) => {
+      const first = a.published_in.split('/')
+      const second = b.published_in.split('/')
+      // const A = new Date(first[2], first[0] - 1, first[1])
+      // const B = new Date(second[2], second[0] - 1, second[1])
+      const A = first[2]
+      const B =second[2]
+      console.log(A)
+      return B- A;
+    })
+    willSort = sort;
+    console.log(willSort)
+    mainFunctionality(willSort, isShowing)
+  })
   const getShowALLBtn = document.getElementById('showALL')
   if (get.length >= 5 && !isShowing) {
     getShowALLBtn.classList.remove('hidden')
@@ -28,7 +47,9 @@ const mainFunctionality = (get, isShowing, sort) => {
     const get11 = get[10].image = 'https://itchronicles.com/wp-content/uploads/2020/09/How-Facebook-uses-Artificial-intelligence-1024x576.jpg'
   }
 
-  const section = document.getElementById('append-section')
+  console.log(willSort)
+  // append and for each section 
+  
   get.forEach(AI => {
     const div = document.createElement('div');
     div.classList = ('card w-96 bg-base-100 shadow-xl')
@@ -54,48 +75,14 @@ const mainFunctionality = (get, isShowing, sort) => {
         </div>
   
       `
-    console.log(AI.published_in)
+    // console.log(AI.published_in)
     section.appendChild(div)
-  //   let aii = []
-  // get.forEach(element => {
-  //   const splting = element.published_in
-  //   const finalSplit = splting.split('/')
-  //   const parsing = parseFloat(finalSplit[2])
-  //   aii.push(parsing)
-  //   // if (sort) {
-  //   //   parsing.sort((a, b) => {
-  //   //     const viewFirst = a;
-  //   //     const viewSecond = b;
-  //   //     // const parse = parseFloat(viewFirst)||0;
-  //   //     // const parse2 = parseFloat(viewSecond)|| 0;
-  //   //     return viewFirst - viewSecond
-  //   //     console.log(viewFirst)
-  //   //   }
-  //   //   )
-  //   // }
-  //   //  console.log( finalSplit) 
-  //   console.log(parsing)
-  // });
-  // console.log(aii)
-  if (sort === 1) {
-    AI.sort((a, b) => {
-      const viewFirst = a.published_in;
-      const viewSecond = b.published_in;
-      const finalSplit = viewFirst.split('/')
-      const finalSplit2 = viewSecond.split('/')
-        const parsing = parseFloat(finalSplit[2])
-        const parsing2 = parseFloat(finalSplit2[2])
-      const parse = parseFloat(viewFirst) || 0;
-      const parse2 = parseFloat(viewSecond) || 0;
-      console.log(parse)
-      return parsing - parsing2
-    }
-    )
-  }
+
+
   });
 
   // const viewFirst = AI.tools;
-  
+
   // console.log(viewFirst)
   // console.log(AI)
 
@@ -136,8 +123,3 @@ const showAll = () => {
 }
 getData()
 
-document.getElementById('sort-btn').addEventListener('click', function () {
-  // sort = true
-  // getData(0,0,sort)
-  mainFunctionality(0,0,1)
-})
