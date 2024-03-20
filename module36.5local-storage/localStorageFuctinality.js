@@ -5,6 +5,12 @@ const buttonClick = ()=>{
  const quantityValue = quantity.value 
  product.value=''
  quantity.value=''
+ if(productValue ===' ' || productValue=== ':'){
+  return
+ }
+ if(quantityValue===''|| quantityValue ===':'){
+  return
+ }
  value(productValue,quantityValue)
 saveProductToStorage(productValue,quantityValue)
 }
